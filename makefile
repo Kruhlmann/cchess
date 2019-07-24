@@ -1,2 +1,2 @@
 all:
-	gcc main.c init.c -o cchess
+	gcc src/main.c src/init.c -o build/cchess

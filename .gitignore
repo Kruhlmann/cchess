@@ -52,4 +52,5 @@ Mkfile.old
 dkms.conf
 
 # Build artifacts
-cchess
+build
+!build/.gitkeep

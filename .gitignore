@@ -52,5 +52,5 @@ Mkfile.old
 dkms.conf
 
 # Build artifacts
-build
+build/*
 !build/.gitkeep

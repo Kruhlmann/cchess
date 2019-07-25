@@ -5,6 +5,8 @@
 
 int main() {
     init();
+    
+    u64 bit_board = 0ULL;
 
     return 0;
 }

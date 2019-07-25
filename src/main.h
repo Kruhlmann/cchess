@@ -18,7 +18,7 @@
     #endif
 
     typedef unsigned char byte;
-    typedef unsigned long long ulong;
+    typedef unsigned long long u64;
 
     #define NAME "CChess 1.0"
     #define BRD_TILE_CNT 120
@@ -26,13 +26,24 @@
 
     /* Macros */
     #define file_rank_to_120sq(file, rank) ((file) + 21 + ((rank) * 10))
+    #define set_bit(bb, sq) ((bb) |= set_mask[(sq)])
+    #define clr_bit(bb, sq) ((bb) &= clr_mask[(sq)])
 
     /* Globals */
-    extern int sq_120_to_sq_64[BRD_TILE_CNT];
-    extern int sq_64_to_sq_120[64];
+    extern short sqs_120[BRD_TILE_CNT];
+    extern short sqs_64[64];
+    extern u64 set_mask[64];
+    extern u64 clr_mask[64];
 
     /* Functions */
+
+    // init.c
     extern void init();
+
+    // bitboards.c
+    extern void print_bitboard(u64 bb);
+    extern short pop_bb(u64 *bb);
+    extern short cnt_bb(u64 b);
 
     /* Enums */
     enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK };
@@ -55,7 +66,7 @@
     /* Structures */
 
     typedef struct {
-        ulong hash;
+        u64 hash;
         byte move;
         byte castle_perm;
         byte en_pass;
@@ -65,7 +76,7 @@
     typedef struct {
         MOVE moves[MAX_GAME_MOVES];
 
-        ulong hash;
+        u64 hash;
         short cur_depth;
         short ply_me;
         short ply_opponent;

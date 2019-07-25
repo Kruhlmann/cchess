@@ -9,7 +9,7 @@ const short BIT_TABLE[64] = {
 };
 
 short pop_bb(u64 *bit_board) {
-    int b = *bit_board ^ (*bit_board - 1);
+    u64 b = *bit_board ^ (*bit_board - 1);
     unsigned int fold = (unsigned) ((b & 0xFFFFFFFF) ^ (b >> 32));
     *bit_board &= (*bit_board - 1);
     return BIT_TABLE[(fold * 0x783a9b23) >> 26];

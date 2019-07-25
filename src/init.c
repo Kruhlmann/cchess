@@ -1,6 +1,6 @@
 // init.c
 
-#include "main.h"
+#include "headers/commons.h"
 
 short sqs_120[BRD_TILE_CNT];
 short sqs_64[64];

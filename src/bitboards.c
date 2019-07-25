@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "main.h"
+#include "headers/commons.h"
 
 const short BIT_TABLE[64] = {
   63, 30, 3, 32, 25, 41, 22, 33, 15, 50, 42, 13, 11, 53, 19, 34, 61, 29, 2,

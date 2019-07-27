@@ -1,2 +1,2 @@
 all:
-	gcc src/main.c src/init.c src/bitboards.c -o build/cchess
+	gcc src/*.c -o build/cchess

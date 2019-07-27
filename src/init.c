@@ -4,8 +4,31 @@
 
 short sqs_120[BRD_TILE_CNT];
 short sqs_64[64];
+
 u64 set_mask[64];
 u64 clr_mask[64];
+
+u64 piece_keys[13][120];
+u64 side_key;
+u64 castle_keys[16];
+
+
+void init_hashes() {
+    byte i;
+    byte j;
+
+    side_key = rand_u64();
+    for (i = 0; i < 13; i++) {
+        for (j = 0; j < 120; j++) {
+            piece_keys[i][j] = rand_u64();
+        }
+    }
+
+    for (i = 0; i < 16; i++) {
+        castle_keys[i] = rand_u64();
+    }
+
+}
 
 void init_bitmasks() {
     byte i;
@@ -49,4 +72,5 @@ void init_sq_120_to_64() {
 void init() {
     init_sq_120_to_64();
     init_bitmasks();
+    init_hashes();
 }

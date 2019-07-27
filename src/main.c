@@ -6,7 +6,10 @@
 int main() {
     init();
     
-    u64 bit_board = 0ULL;
-    
+    BOARD board[1];
+
+    parse_FEN(START_FEN, board);
+    // print_board(board);
+
     return 0;
 }
